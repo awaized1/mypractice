@@ -9,13 +9,13 @@
 
 void times_table(void)
 {
-	int a, b, c, d;
+	int a, b, c;
 	for (a = 0; a <= 9; a++)
 		for(b = 0; b <= 9; b++)
 		{
 			c = (a * b);
-			for(d = 0; d <= 9; d++)
-				printf("%d ,", c);
-			printf("\n");
+			printf("%d ,", c);
+			if((b == 9))
+				printf("\n");
 		}
 }
