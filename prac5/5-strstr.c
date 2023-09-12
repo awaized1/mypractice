@@ -11,26 +11,19 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int a, b, c, d , e;
+	for (; *haystack != '\0'; haystack++)
+	{
+		char *i = haystack;
+		char *p = needle;
+	
+	while (*i == *p && *p != '\0')
+	{
+		i++;
+		p++;
+	}
 
-	for (a = 0; haystack[a] != '\0'; a++)
-	{
+	if (*p == '\0')
+		return (haystack);
 	}
-	for (b = 0; needle[b] != '\0'; b++)
-	{
-	}
-	for (c = 0; c <= a; c++)
-		if (haystack[c] == ' ')
-			for (d = c+1; haystack[d] != ' '; d++)
-				for (e = 0; e <= b; e++)
-				{
-					if (needle[e] == haystack[d])
-					{
-						printf("The string is present.\n");
-						return (needle);
-					}
-					else
-						printf("The string is not present.\n");
-				}
-	return (haystack);
+	return (0);
 }
