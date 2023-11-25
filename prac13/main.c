@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	unsigned int a, b, c, d, e, f, lcm;
+	unsigned int a, b, c, d, e, f, lcm = 1;
 
 	printf("Enter 3 positive numbers to find LCM\n");
 	scanf("%d %d %d", &a, &b, &c);
@@ -26,58 +26,20 @@ int main(void)
 
 	for (f = 2; f <= e; f++)
 	{
-		if((f % a == 0) || (f % b == 0) || (f % c == 0))
-		{
-			if((f % a == 0) && (f % b == 0) && (f % c == 0))
-			{
-				a = a / f;
-				b = b / f;
-				c = c / f;
-			}
-			
-			else if((f % a == 0) && (f % b == 0) && (f % c != 0))
-			{
-				a = a / f;
-				b = b / f;
-				c = c / 1;
-			}
+		while (a % f == 0 || b % f == 0 || c % f == 0)
+        {
+            lcm *= f;
 
-			else if((f % a != 0) && (f % b == 0) && (f % c == 0))
-			{
-				a = a / 1;
-				b = b / f;
-				c = c / f;
-			}
-			
-			else if((f % a == 0) && (f % b != 0) && (f % c == 0))
-			{
-				a = a / f;
-				b = b / 1;
-				c = c / f;
-			}
+            if (a % f == 0)
+                a /= f;
+            if (b % f == 0)
+                b /= f;
+            if (c % f == 0)
+                c /= f;
+        }
+    }
 
-			else if((f % a == 0) && (f % b != 0) && (f % c != 0))
-			{
-				a = a / f;
-				b = b / 1;
-				c = c / 1;
-			}
+    printf("The LCM is: %d\n", lcm);
 
-			else if((f % a != 0) && (f % b == 0) && (f % c != 0))
-			{
-				a = a / 1;
-				b = b / f;
-				c = c / 1;
-			}
-
-			else if((f % a != 0) && (f % b != 0) && (f % c == 0))
-			{
-                                a = a / 1;
-                                b = b / 1;
-                                c = c / f;
-                        }
-			lcm = lcm * f;
-		}
-	}
-	return (0);
+    return 0;
 }
